@@ -21,19 +21,33 @@ public class Ruudukko {
     }
 
     public void avaaViereiset(String kirjain, int numero) {
-        int epakirjain = kirjain.charAt(0) - 1;
-
+        
+        int epanumero = numero - 2;
+        
         for (int montako = 0; montako < 3; montako++) {
-            int epanumero = numero - 1;
+            int epakirjain = kirjain.charAt(0) - 1;
+            epanumero++;
 
             for (int monesko = 0; monesko < 3; monesko++) {
+                
                 ruutu kohta = ruudut.haeRuutu(Integer.toString(epakirjain), epanumero);
-                if (kohta.OnkoAuki() == false) {
+                if (kohta.OnkoAuki() == false && voikoAvata(epakirjain, epanumero)) {
                     AvaaRuutu(Integer.toString(epakirjain), epanumero);
                 }
+                epakirjain++;
             }
 
         }
+    }
+    
+    public boolean voikoAvata(int epakirjain, int epanumero){
+        if (epakirjain < 0 || epakirjain > 10) {
+            return false;
+        }
+        if (epanumero < 0 || epanumero > 10) {
+            return false;
+        }
+            return true;
     }
 
     public void Tulostettava() {
