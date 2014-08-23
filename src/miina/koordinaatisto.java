@@ -12,21 +12,21 @@ public class koordinaatisto {
         String kirjaimet = "ABCDEFGHIJ";
         int luku = 0;
         int numero = 1;
+        int meh = 1;
 
-        while (a <= 10) {
-
-            String kirjain = "" + kirjaimet.charAt(luku);
-            this.ruudut.add(new ruutu(kirjain, numero));
-            
-            numero++;
-            a++;
+        while (meh <= 10) {
+            while (a <= 10) {
+                String kirjain = "" + kirjaimet.charAt(luku);
+                this.ruudut.add(new ruutu(kirjain, numero));
+                numero++;
+                a++;
+            }
+            numero = 1;
+            a = 1;
+            luku++;
+            meh++;
 
         }
-        
-        a = 1;
-        
-        
-        
 
     }
 
