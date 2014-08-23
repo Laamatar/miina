@@ -40,8 +40,8 @@ public class koordinaatisto {
         return this.ruudut.get(sarake * 10 + rivi);
 
     }
-    
-    public ruutu haeppasRuutu(int monesko){
+
+    public ruutu haeppasRuutu(int monesko) {
         return this.ruudut.get(monesko);
     }
 
@@ -54,18 +54,6 @@ public class koordinaatisto {
             indeksiMuuttuja++;
             ruutuListanKoko--;
         }
-    }
-
-    public void miina2() {
-        this.ruudut.get(56).Miinoita();
-    }
-
-    public void miina() {
-        this.ruudut.get(59).Miinoita();
-    }
-
-    public void miina3() {
-        this.ruudut.get(50).Miinoita();
     }
 
     public void MIINOITA(int maara) {
@@ -114,6 +102,9 @@ public class koordinaatisto {
             int ylaraja = this.miinoitetutRuudut().get(indeksiluku).Sarake() * 10 + 10;
             int alaraja = this.miinoitetutRuudut().get(indeksiluku).Sarake() * 10;
 
+            boolean oikealla = false;
+            boolean vasemmalla = false;
+
             int miinanIndeksi = this.miinoitetutRuudut().get(indeksiluku).ruudunIndeksi();
 
             if (miinanIndeksi + 1 >= ylaraja) {
@@ -122,26 +113,39 @@ public class koordinaatisto {
             }
             if (miinanIndeksi + 1 + 10 >= ylaraja + 10) {
             } else {
-                this.ruudut.get(miinanIndeksi + 1 + 10).lisaaArvo();
+                if (miinanIndeksi + 11 <= 90) {
+                    this.ruudut.get(miinanIndeksi + 1 + 10).lisaaArvo();
+                }
             }
             if (miinanIndeksi + 1 - 10 >= ylaraja - 10) {
             } else {
-                this.ruudut.get(miinanIndeksi + 1 - 10).lisaaArvo();
+                if (miinanIndeksi + 1 - 10 >= 9) {
+                    this.ruudut.get(miinanIndeksi + 1 - 10).lisaaArvo();
+                }
             }
-            if (miinanIndeksi - 1 - 10 <= alaraja - 10) {
+            if (miinanIndeksi - 1 - 10 >= alaraja - 10 || miinanIndeksi == 91) {
+                if (miinanIndeksi - 10 - 1 >= 9) {
+                    this.ruudut.get(miinanIndeksi - 1 - 10).lisaaArvo();
+                }
             } else {
-                this.ruudut.get(miinanIndeksi - 1 - 10).lisaaArvo();
+               
             }
-            if (miinanIndeksi - 1 <= alaraja) {
-            } else {
+            if (miinanIndeksi - 1 >= alaraja || miinanIndeksi == 1) {
                 this.ruudut.get(miinanIndeksi - 1).lisaaArvo();
-            }
-            if (miinanIndeksi - 1 + 10 <= alaraja + 10) {
             } else {
-                this.ruudut.get(miinanIndeksi - 1 + 10).lisaaArvo();
             }
-            this.ruudut.get(miinanIndeksi + 10).lisaaArvo();
-            this.ruudut.get(miinanIndeksi - 10).lisaaArvo();
+            if (miinanIndeksi - 1 + 10 < alaraja + 10) {
+            } else {
+                if (miinanIndeksi + 10 - 1 <= 90) {
+                    this.ruudut.get(miinanIndeksi - 1 + 10).lisaaArvo();
+                }
+            }
+            if (miinanIndeksi + 10 <= 90) {
+                this.ruudut.get(miinanIndeksi + 10).lisaaArvo();
+            }
+            if (miinanIndeksi - 10 >= 9) {
+                this.ruudut.get(miinanIndeksi - 10).lisaaArvo();
+            }
 
             indeksiluku++;
             miinojenMaara--;
