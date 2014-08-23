@@ -58,5 +58,9 @@ public class ruutu {
     public void lisaaArvo() {
         this.arvo++;
     }
+    
+    public int annaArvo() {
+        return this.arvo;
+    }
 
 }
