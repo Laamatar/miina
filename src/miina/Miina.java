@@ -7,7 +7,7 @@ public class Miina {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        sjrjsgm
+        sjrjsgmsdf
         // TODO code application logic here
     }
     
