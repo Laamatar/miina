@@ -10,22 +10,22 @@ public class koordinaatisto {
 
     public koordinaatisto() {
         this.ruudut = new ArrayList<ruutu>();
-        int a = 1;
+        int sisempisilmukkamuuttuja = 1;
         String kirjaimet = "ABCDEFGHIJ";
-        int luku = 0;
+        int kirjaimenIndeksiluku = 0;
         int numero = 1;
-        int meh = 1;
+        int meh = 1;  // meh on ulomman silmukan muuttuja
 
         while (meh <= 10) {
-            while (a <= 10) {
-                String kirjain = "" + kirjaimet.charAt(luku);
+            while (sisempisilmukkamuuttuja <= 10) {
+                String kirjain = "" + kirjaimet.charAt(kirjaimenIndeksiluku);
                 this.ruudut.add(new ruutu(kirjain, numero));
                 numero++;
-                a++;
+                sisempisilmukkamuuttuja++;
             }
             numero = 1;
-            a = 1;
-            luku++;
+            sisempisilmukkamuuttuja = 1;
+            kirjaimenIndeksiluku++;
             meh++;
 
         }
@@ -43,32 +43,32 @@ public class koordinaatisto {
 
     public void tulosta() {
 
-        int as = 0;
-        int ds = this.ruudut.size();
-        while (ds > 0) {
-            System.out.println(this.ruudut.get(as));
-            as++;
-            ds--;
+        int indeksiMuuttuja = 0;
+        int ruutuListanKoko = this.ruudut.size();
+        while (ruutuListanKoko > 0) {
+            System.out.println(this.ruudut.get(indeksiMuuttuja));
+            indeksiMuuttuja++;
+            ruutuListanKoko--;
         }
     }
 
     public void MIINOITA(int maara) {
 
-        int aefs = maara;
+        int miinojenMaara = maara;
 
         this.random = new Random();
-        int asd = 0;
-        int kirjainnumero = 0;
+        int arvottuNumero = 0;
+        int kirjainNumero = 0;
 
-        while (aefs > 0) {
-            asd = random.nextInt(10) + 1;
-            kirjainnumero = random.nextInt(11);
+        while (miinojenMaara > 0) {
+            arvottuNumero = random.nextInt(10) + 1;
+            kirjainNumero = random.nextInt(11);
             String kirjaimet = "ABCDEFGHIJ";
-            String kirjain = "" + kirjaimet.charAt(kirjainnumero);
+            String kirjain = "" + kirjaimet.charAt(kirjainNumero);
             
-            this.haeRuutu(kirjain, asd);
+            this.haeRuutu(kirjain, arvottuNumero).Miinoita();
 
-            aefs--;
+            miinojenMaara--;
         }
 
     }
