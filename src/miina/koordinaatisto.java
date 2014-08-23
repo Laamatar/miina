@@ -40,6 +40,10 @@ public class koordinaatisto {
         return this.ruudut.get(sarake * 10 + rivi);
 
     }
+    
+    public ruutu haeppasRuutu(int monesko){
+        return this.ruudut.get(monesko);
+    }
 
     public void tulosta() {
 
