@@ -35,9 +35,9 @@ public class koordinaatisto {
     public ruutu haeRuutu(String kirjain, int numero) {
         int rivi = numero - 1;
         String kirjaimet = "ABCDEFGHIJ";
-        int sarake =  kirjaimet.indexOf(kirjain);
-        
-        return this.ruudut.get(sarake*10+rivi);
+        int sarake = kirjaimet.indexOf(kirjain);
+
+        return this.ruudut.get(sarake * 10 + rivi);
 
     }
 
@@ -52,6 +52,18 @@ public class koordinaatisto {
         }
     }
 
+    public void miina2() {
+        this.ruudut.get(56).Miinoita();
+    }
+
+    public void miina() {
+        this.ruudut.get(59).Miinoita();
+    }
+
+    public void miina3() {
+        this.ruudut.get(50).Miinoita();
+    }
+
     public void MIINOITA(int maara) {
 
         int miinojenMaara = maara;
@@ -62,12 +74,72 @@ public class koordinaatisto {
 
         while (miinojenMaara > 0) {
             arvottuNumero = random.nextInt(10) + 1;
-            kirjainNumero = random.nextInt(11);
+            kirjainNumero = random.nextInt(10);
             String kirjaimet = "ABCDEFGHIJ";
             String kirjain = "" + kirjaimet.charAt(kirjainNumero);
-            
+
             this.haeRuutu(kirjain, arvottuNumero).Miinoita();
 
+            miinojenMaara--;
+        }
+
+    }
+
+    public ArrayList<ruutu> miinoitetutRuudut() {
+        ArrayList<ruutu> miinoitetutruudut = new ArrayList<ruutu>();
+        int muuttuja = 0;
+        int ruutuListanKoko = this.ruudut.size();
+        while (ruutuListanKoko > 0) {
+            if (this.ruudut.get(muuttuja).OnkoMiina()) {
+                miinoitetutruudut.add(this.ruudut.get(muuttuja));
+            } else {
+            }
+            muuttuja++;
+            ruutuListanKoko--;
+        }
+        return miinoitetutruudut;
+    }
+
+    public void laskeArvot() {
+
+        int indeksiluku = 0;
+        int miinojenMaara = this.miinoitetutRuudut().size();
+
+        while (miinojenMaara > 0) {
+
+            int ylaraja = this.miinoitetutRuudut().get(indeksiluku).Sarake() * 10 + 10;
+            int alaraja = this.miinoitetutRuudut().get(indeksiluku).Sarake() * 10;
+
+            int miinanIndeksi = this.miinoitetutRuudut().get(indeksiluku).ruudunIndeksi();
+
+            if (miinanIndeksi + 1 >= ylaraja) {
+            } else {
+                this.ruudut.get(miinanIndeksi + 1).lisaaArvo();
+            }
+            if (miinanIndeksi + 1 + 10 >= ylaraja + 10) {
+            } else {
+                this.ruudut.get(miinanIndeksi + 1 + 10).lisaaArvo();
+            }
+            if (miinanIndeksi + 1 - 10 >= ylaraja - 10) {
+            } else {
+                this.ruudut.get(miinanIndeksi + 1 - 10).lisaaArvo();
+            }
+            if (miinanIndeksi - 1 - 10 <= alaraja - 10) {
+            } else {
+                this.ruudut.get(miinanIndeksi - 1 - 10).lisaaArvo();
+            }
+            if (miinanIndeksi - 1 <= alaraja) {
+            } else {
+                this.ruudut.get(miinanIndeksi - 1).lisaaArvo();
+            }
+            if (miinanIndeksi - 1 + 10 <= alaraja + 10) {
+            } else {
+                this.ruudut.get(miinanIndeksi - 1 + 10).lisaaArvo();
+            }
+            this.ruudut.get(miinanIndeksi + 10).lisaaArvo();
+            this.ruudut.get(miinanIndeksi - 10).lisaaArvo();
+
+            indeksiluku++;
             miinojenMaara--;
         }
 
