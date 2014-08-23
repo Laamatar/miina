@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package miina;
 
-/**
- *
- * @author M.Kääriäinen
- */
+import java.util.ArrayList;
 public class koordinaatisto {
+        private ArrayList ruudut;
+        
+        public koordinaatisto(){
+            this.ruudut = new ArrayList();
+            
+            
+            
+        }
+    }
     
-}
+    
