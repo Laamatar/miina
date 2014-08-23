@@ -22,18 +22,41 @@ public class ruutu {
     public boolean OnkoMiina() {
         return this.miina;
     }
-    
-    public String toString(){
-        return this.kirjain + this.numero + " Miina:" + this.OnkoMiina();
-        
+
+    public String toString() {
+        return this.kirjain + this.numero + " Miina:" + this.OnkoMiina() + " Arvo:" + this.arvo;
+
     }
-    public void Aukaise(){
+
+    public void Aukaise() {
         this.auki = true;
     }
-    
-    public boolean OnkoAuki(){
+
+    public boolean OnkoAuki() {
         return this.auki;
     }
-    
+
+    public int ruudunIndeksi() {
+        int rivi = this.numero - 1;
+        String kirjaimet = "ABCDEFGHIJ";
+        int sarake = kirjaimet.indexOf(this.kirjain);
+
+        return sarake * 10 + rivi;
+    }
+
+    public int Sarake() {
+        String kirjaimet = "ABCDEFGHIJ";
+        int sarake = kirjaimet.indexOf(this.kirjain);
+
+        return sarake;
+    }
+
+    public int Rivi() {
+        return this.numero - 1;
+    }
+
+    public void lisaaArvo() {
+        this.arvo++;
+    }
 
 }
