@@ -8,6 +8,10 @@ public class Miina {
      */
     public static void main(String[] args) {
         Mui.
+             
+                dvv
+                v,v,
+                v
         // TODO code application logic here
     }
     
