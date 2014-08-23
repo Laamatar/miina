@@ -21,7 +21,10 @@ public class ruutu {
         return this.miina;
     }
     
-    
+    public String toString(){
+        return this.kirjain + this.numero;
+        
+    }
     
 
 }
