@@ -22,7 +22,7 @@ public class ruutu {
     }
     
     public String toString(){
-        return this.kirjain + this.numero;
+        return this.kirjain + this.numero + " Miina:" + this.OnkoMiina();
         
     }
     
