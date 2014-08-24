@@ -44,7 +44,8 @@ public class koordinaatisto {
     public ruutu haeppasRuutu(int monesko) {
         return this.ruudut.get(monesko);
     }
-    public void miina(){
+
+    public void miina() {
         this.ruudut.get(49).Miinoita();
         this.ruudut.get(59).Miinoita();
     }
@@ -96,6 +97,20 @@ public class koordinaatisto {
         return miinoitetutruudut;
     }
 
+    public boolean Havio() {
+
+        int muuttuja = 0;
+        int ruutuListanKoko = this.ruudut.size();
+        while (ruutuListanKoko > 0) {
+            if (this.ruudut.get(muuttuja).OnkoMiina() && this.ruudut.get(muuttuja).OnkoAuki()) {
+                return true;
+            }
+            muuttuja++;
+            ruutuListanKoko--;
+        } return false;
+
+    }
+
     public void laskeArvot() {
 
         int indeksiluku = 0;
@@ -132,7 +147,7 @@ public class koordinaatisto {
                     this.ruudut.get(miinanIndeksi - 1 - 10).lisaaArvo();
                 }
             } else {
-               
+
             }
             if (miinanIndeksi - 1 >= alaraja || miinanIndeksi == 1) {
                 this.ruudut.get(miinanIndeksi - 1).lisaaArvo();
