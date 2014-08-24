@@ -66,9 +66,12 @@ public class Ruudukko {
         }
         return true;
     }
-    
-    public boolean Havio(){
+
+    public boolean Havio() {
         return this.ruudut.Havio();
+    }
+    public boolean Voitto() {
+        return this.ruudut.Voitto();
     }
 
     public void Tulostettava() {
@@ -78,6 +81,11 @@ public class Ruudukko {
         boolean havio = false;
 
         while (true) {
+            if (i + 1 == 10) {
+                System.out.print((i + 1) + "  ");
+            } else {
+                System.out.print((i + 1) + "   ");
+            }
             for (int x = i; x < 100; x += 10) {
                 ruutu kohta = ruudut.haeppasRuutu(x);
                 if (kohta.OnkoAuki()) {
@@ -98,6 +106,8 @@ public class Ruudukko {
                 break;
             }
         }
+        System.out.println("");
+        System.out.println("    A B C D E F G H I J");
 
         if (havio) {
             System.out.println("BOOM!!!");
