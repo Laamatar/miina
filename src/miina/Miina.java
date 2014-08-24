@@ -19,15 +19,22 @@ public class Miina {
             String garr = lukija.nextLine();
             String kirjain = "" + garr.charAt(0);
             int numero = Integer.parseInt("" + garr.substring(1));
+            System.out.println("");
 
             //koordinaatisto meh = new koordinaatisto();
             //meh.laskeArvot();
             //meh.tulosta();
             foo.AvaaRuutu(kirjain, numero);
             foo.Tulostettava();
+            System.out.println("");
             //System.out.println(meh.miinoitetutRuudut());
         
             if (foo.Havio()) {
+                break;
+            }
+            if (foo.Voitto()) {
+                System.out.println("Ebin! Voitit. :D");
+                System.out.println("");
                 break;
             }
         }
