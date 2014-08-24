@@ -20,12 +20,16 @@ public class Miina {
             String kirjain = "" + garr.charAt(0);
             int numero = Integer.parseInt("" + garr.substring(1));
 
-        //koordinaatisto meh = new koordinaatisto();
+            //koordinaatisto meh = new koordinaatisto();
             //meh.laskeArvot();
             //meh.tulosta();
             foo.AvaaRuutu(kirjain, numero);
             foo.Tulostettava();
             //System.out.println(meh.miinoitetutRuudut());
+        
+            if () {
+                
+            }
         }
     }
 }
