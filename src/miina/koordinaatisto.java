@@ -44,6 +44,10 @@ public class koordinaatisto {
     public ruutu haeppasRuutu(int monesko) {
         return this.ruudut.get(monesko);
     }
+    public void miina(){
+        this.ruudut.get(49).Miinoita();
+        this.ruudut.get(59).Miinoita();
+    }
 
     public void tulosta() {
 
@@ -65,7 +69,7 @@ public class koordinaatisto {
         int kirjainNumero = 0;
 
         while (miinojenMaara > 0) {
-            arvottuNumero = random.nextInt(10) + 1;
+            arvottuNumero = random.nextInt(10);
             kirjainNumero = random.nextInt(10);
             String kirjaimet = "ABCDEFGHIJ";
             String kirjain = "" + kirjaimet.charAt(kirjainNumero);
@@ -113,18 +117,18 @@ public class koordinaatisto {
             }
             if (miinanIndeksi + 1 + 10 >= ylaraja + 10) {
             } else {
-                if (miinanIndeksi + 11 <= 90) {
+                if (miinanIndeksi + 11 <= 99) {
                     this.ruudut.get(miinanIndeksi + 1 + 10).lisaaArvo();
                 }
             }
             if (miinanIndeksi + 1 - 10 >= ylaraja - 10) {
             } else {
-                if (miinanIndeksi + 1 - 10 >= 9) {
+                if (miinanIndeksi + 1 - 10 >= 0) {
                     this.ruudut.get(miinanIndeksi + 1 - 10).lisaaArvo();
                 }
             }
             if (miinanIndeksi - 1 - 10 >= alaraja - 10 || miinanIndeksi == 91) {
-                if (miinanIndeksi - 10 - 1 >= 9) {
+                if (miinanIndeksi - 10 - 1 >= 0) {
                     this.ruudut.get(miinanIndeksi - 1 - 10).lisaaArvo();
                 }
             } else {
@@ -136,14 +140,14 @@ public class koordinaatisto {
             }
             if (miinanIndeksi - 1 + 10 < alaraja + 10) {
             } else {
-                if (miinanIndeksi + 10 - 1 <= 90) {
+                if (miinanIndeksi + 10 - 1 <= 99) {
                     this.ruudut.get(miinanIndeksi - 1 + 10).lisaaArvo();
                 }
             }
-            if (miinanIndeksi + 10 <= 90) {
+            if (miinanIndeksi + 10 <= 99) {
                 this.ruudut.get(miinanIndeksi + 10).lisaaArvo();
             }
-            if (miinanIndeksi - 10 >= 9) {
+            if (miinanIndeksi - 10 >= 0) {
                 this.ruudut.get(miinanIndeksi - 10).lisaaArvo();
             }
 
