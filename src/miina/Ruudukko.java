@@ -66,6 +66,10 @@ public class Ruudukko {
         }
         return true;
     }
+    
+    public boolean Havio(){
+        return this.ruudut.Havio();
+    }
 
     public void Tulostettava() {
 
