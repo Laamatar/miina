@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Ruudukko {
 
     public koordinaatisto ruudut;
-    
+
     Ruudukko() {
-        
+
         ruudut = new koordinaatisto();
 
         //ruudut.laskeArvot();
@@ -25,53 +25,67 @@ public class Ruudukko {
     }
 
     public void avaaViereiset(String kirjain, int numero) {
-        
-        int epanumero = numero-1;
+
+        int epanumero = numero - 1;
         String taika = "ABCDEFGHIJKLMNOPQ";
-        
+
         for (int montako = 0; montako < 3; montako++) {
             int epakirjain = taika.indexOf(kirjain); //kirjain.charAt(0) - 1;
             //epanumero++;
 
-            for (int monesko = 0; monesko < 3; monesko++) {   
-                if(epakirjain+montako-1 < 0)
+            for (int monesko = 0; monesko < 3; monesko++) {
+                if (epakirjain + montako - 1 < 0) {
                     continue;
-                if(epakirjain+montako-1 >= 10 )
+                }
+                if (epakirjain + montako - 1 >= 10) {
                     continue;
-                if(epanumero+monesko-1 < 0) 
+                }
+                if (epanumero + monesko - 1 < 0) {
                     continue;
-                if(epanumero+monesko-1 >= 10 )
+                }
+                if (epanumero + monesko - 1 >= 10) {
                     continue;
+                }
                 //System.out.println("!! " + (epakirjain+montako-1) + " " + (epanumero+monesko-1));
-                ruutu kohta = ruudut.haeRuutu(""+taika.charAt(epakirjain+montako-1), epanumero+monesko);
-                if (kohta.OnkoAuki() == false && voikoAvata(epakirjain+montako-1, epanumero+monesko)) {
-                    AvaaRuutu(""+taika.charAt(epakirjain+montako-1), epanumero+monesko);
+                ruutu kohta = ruudut.haeRuutu("" + taika.charAt(epakirjain + montako - 1), epanumero + monesko);
+                if (kohta.OnkoAuki() == false && voikoAvata(epakirjain + montako - 1, epanumero + monesko)) {
+                    AvaaRuutu("" + taika.charAt(epakirjain + montako - 1), epanumero + monesko);
                 }
                 //epakirjain++;
             }
 
         }
     }
-    
-    public boolean voikoAvata(int epakirjain, int epanumero){
+
+    public boolean voikoAvata(int epakirjain, int epanumero) {
         if (epakirjain < 0 || epakirjain > 10) {
             return false;
         }
         if (epanumero < 0 || epanumero > 10) {
             return false;
         }
-            return true;
+        return true;
     }
 
     public void Tulostettava() {
-        for (int silmukkamuuttuja = 0; silmukkamuuttuja < 100; silmukkamuuttuja++) {
-            ruutu kohta = ruudut.haeppasRuutu(silmukkamuuttuja);
-            if (kohta.OnkoAuki()) {
-                System.out.print(kohta.annaArvo());
-            } else {
-                System.out.print("?");
+
+        int i = 9;
+
+        while (true) {
+            for (int x = i; x < 100; x += 10) {
+                ruutu kohta = ruudut.haeppasRuutu(x);
+                if (kohta.OnkoAuki()) {
+                    System.out.print(kohta.annaArvo()+ " ");
+                } else {
+                    System.out.print("? ");
+                }
             }
-            if(silmukkamuuttuja%10 == 9) System.out.println();
+            i--;
+            System.out.println("");
+            
+            if (i == - 1){
+                break;
+            }
         }
     }
 }
