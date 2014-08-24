@@ -27,8 +27,8 @@ public class Miina {
             foo.Tulostettava();
             //System.out.println(meh.miinoitetutRuudut());
         
-            if () {
-                
+            if (foo.Havio()) {
+                break;
             }
         }
     }
