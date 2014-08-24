@@ -13,6 +13,7 @@ public class ruutu {
         this.numero = numero;
         this.miina = false;
         this.auki = false;
+
     }
 
     public void Miinoita() {
