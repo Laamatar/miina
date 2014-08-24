@@ -9,6 +9,8 @@ public class Miina {
         Scanner lukija = new Scanner(System.in);
         System.out.println("Montako miinaa? ");
         foo.ruudut.MIINOITA(Integer.parseInt(lukija.nextLine()));
+
+        foo.ruudut.laskeArvot();
         
         while(true){
         //ebin tää on infinite loop
@@ -22,8 +24,6 @@ public class Miina {
         //koordinaatisto meh = new koordinaatisto();
         //meh.laskeArvot();
         //meh.tulosta();
-
-        foo.ruudut.laskeArvot();
         foo.AvaaRuutu(kirjain, numero);
         foo.Tulostettava();
         //System.out.println(meh.miinoitetutRuudut());
