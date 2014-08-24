@@ -70,6 +70,7 @@ public class Ruudukko {
     public boolean Havio() {
         return this.ruudut.Havio();
     }
+
     public boolean Voitto() {
         return this.ruudut.Voitto();
     }
@@ -90,10 +91,14 @@ public class Ruudukko {
                 ruutu kohta = ruudut.haeppasRuutu(x);
                 if (kohta.OnkoAuki()) {
                     if (kohta.OnkoMiina()) {
-                        System.out.print("! ");
+                        System.out.print("¤ ");
                         havio = true;
                     } else {
-                        System.out.print(kohta.annaArvo() + " ");
+                        if (kohta.annaArvo() != 0) {
+                            System.out.print(kohta.annaArvo() + " ");
+                        } else {
+                            System.out.print("~ ");
+                        }
                     }
                 } else {
                     System.out.print("? ");
@@ -110,7 +115,7 @@ public class Ruudukko {
         System.out.println("    A B C D E F G H I J");
 
         if (havio) {
-                
+
             System.out.println("");
             System.out.println("         ,--.!,");
             System.out.println("      __/   -*-");
