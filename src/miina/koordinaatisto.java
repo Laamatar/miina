@@ -69,7 +69,7 @@ public class koordinaatisto {
         int kirjainNumero = 0;
 
         while (miinojenMaara > 0) {
-            arvottuNumero = random.nextInt(10);
+            arvottuNumero = random.nextInt(10) + 1;
             kirjainNumero = random.nextInt(10);
             String kirjaimet = "ABCDEFGHIJ";
             String kirjain = "" + kirjaimet.charAt(kirjainNumero);
