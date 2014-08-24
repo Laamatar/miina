@@ -107,8 +107,30 @@ public class koordinaatisto {
             }
             muuttuja++;
             ruutuListanKoko--;
-        } return false;
+        }
+        return false;
 
+    }
+
+    public boolean Voitto() {
+        ArrayList<ruutu> miinoitetutruudut = new ArrayList<ruutu>();
+        int muuttuja = 0;
+        int ruutuListanKoko = this.ruudut.size();
+        while (ruutuListanKoko > 0) {
+            if (this.ruudut.get(muuttuja).OnkoAuki() == false) {
+                if (!this.ruudut.get(muuttuja).OnkoMiina()) {
+                    return false;
+                } else {
+                    miinoitetutruudut.add(this.ruudut.get(muuttuja));
+                }
+            }
+            muuttuja++;
+            ruutuListanKoko--;
+        }
+        if (miinoitetutruudut.size() == this.miinoitetutRuudut().size()){
+            return true;
+        }
+        return false;
     }
 
     public void laskeArvot() {
