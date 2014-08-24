@@ -71,21 +71,33 @@ public class Ruudukko {
 
         int i = 9;
 
+        boolean havio = false;
+
         while (true) {
             for (int x = i; x < 100; x += 10) {
                 ruutu kohta = ruudut.haeppasRuutu(x);
                 if (kohta.OnkoAuki()) {
-                    System.out.print(kohta.annaArvo()+ " ");
+                    if (kohta.OnkoMiina()) {
+                        System.out.print("! ");
+                        havio = true;
+                    } else {
+                        System.out.print(kohta.annaArvo() + " ");
+                    }
                 } else {
                     System.out.print("? ");
                 }
             }
             i--;
             System.out.println("");
-            
-            if (i == - 1){
+
+            if (i == - 1) {
                 break;
             }
+        }
+
+        if (havio) {
+            System.out.println("BOOM!!!");
+            System.out.println("Hävisit pelin!!!");
         }
     }
 }
