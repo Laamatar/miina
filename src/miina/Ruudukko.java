@@ -110,6 +110,15 @@ public class Ruudukko {
         System.out.println("    A B C D E F G H I J");
 
         if (havio) {
+                
+            System.out.println("");
+            System.out.println("         ,--.!,");
+            System.out.println("      __/   -*-");
+            System.out.println("    ,d08b.  '|`");
+            System.out.println("    0088MM     ");
+            System.out.println("    `9MMP'     ");
+            System.out.println("");
+            System.out.println("");
             System.out.println("BOOM!!!");
             System.out.println("Hävisit pelin!!!");
         }
